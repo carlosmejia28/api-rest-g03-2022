@@ -45,6 +45,10 @@ public class PacienteControlador {
         LocalDate localDate = LocalDate.parse(fecha);
         return pacienteServicio.pacientePorFechaMenor(localDate);
     }
+    @GetMapping("/ciudad/{ciudad}")
+    public List<PacienteModelo> listPacientesCiudad(@PathVariable("ciudad") String ciudad){
+        return pacienteServicio.pacientesByCiudad(ciudad);
+    }
 
     @PostMapping()
     public String savePaciente(@RequestBody PacienteModelo paciente){
@@ -55,9 +59,6 @@ public class PacienteControlador {
     public String deletePacienteById(@PathVariable("id") String id){
        return pacienteServicio.eliminarPacientePorId(id);
 }
-    @GetMapping("/ciudad/{ciudad}")
-    public List<PacienteModelo> listPacientesCiudad(@PathVariable("ciudad") String ciudad){
-        return pacienteServicio.pacientesByCiudad(ciudad);
-    }
+   
 
 }
