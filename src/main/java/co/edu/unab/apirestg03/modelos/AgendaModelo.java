@@ -20,6 +20,8 @@ public class AgendaModelo {
     @Id
     private String id;
     private String id_medico;
+    private String nombremedico;
+    private String especialidad;
     private LocalDate fecha;
     private List<Object> citas;
        
