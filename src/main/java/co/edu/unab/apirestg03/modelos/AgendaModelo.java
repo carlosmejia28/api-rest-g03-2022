@@ -23,6 +23,6 @@ public class AgendaModelo {
     private String nombremedico;
     private String especialidad;
     private LocalDate fecha;
-    private List<Object> citas;
+    private List<CitaModel> citas;
        
 }
