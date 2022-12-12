@@ -42,16 +42,6 @@ public class PacienteServicio {
         return pacienteRepositorio.findByApellido(apellido);
     }
 
-    public String eliminarPacientePorId(String id) {
-        if (pacienteRepositorio.existsById(id)) {
-            Optional<PacienteModelo> paciente = pacienteRepositorio.findById(id);
-            pacienteRepositorio.deleteById(id);
-            return "Paciente " + paciente.get().getNombre() + " Eliminado";
-        } else {
-            return "No Eliminado";
-        }
-    }
-
     public List<PacienteModelo> pacientesByCiudad(String ciudad){
         return pacienteRepositorio.buscarPorCiudad(ciudad);
     }

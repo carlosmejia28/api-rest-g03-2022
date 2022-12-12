@@ -1,5 +1,6 @@
 package co.edu.unab.apirestg03.servicios;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,10 @@ public class AgendaServicio {
     @Autowired
     MedicoRepositorio medicoRepositorio;
 
+    public List<AgendaModelo>getAllAgendas(){
+        return agendaRepositorio.findAll();
+    }
+
     public Optional <AgendaModelo> getAgendaById(String id){
         Optional <AgendaModelo> agenda= agendaRepositorio.findById(id);
         Optional <MedicoModelo> medico = medicoRepositorio.findById(agenda.get().getId_medico());
@@ -26,6 +31,15 @@ public class AgendaServicio {
     }
     public AgendaModelo saveAgenda(AgendaModelo agenda){
         return agendaRepositorio.save(agenda);
+    }
+
+    public String eliminarAgendaPorId(String id) {
+        if (agendaRepositorio.existsById(id)) {
+            agendaRepositorio.deleteById(id);
+            return "Agenda Eliminada";
+        } else {
+            return "Documento No Eliminado";
+        }
     }
     
 }
