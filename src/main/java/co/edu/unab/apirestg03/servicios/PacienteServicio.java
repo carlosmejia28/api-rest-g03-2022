@@ -50,4 +50,12 @@ public class PacienteServicio {
         return pacienteRepositorio.buscarPacientesMenoresDeFecha(fecha);
     }
 
+    public boolean existPacienteByID(long ndocumento){
+        return pacienteRepositorio.existsByNdocumento(ndocumento);
+    }
+
+    public  Optional<PacienteModelo> pacientePorNdocumento(long ndocumento){
+        return pacienteRepositorio.findByNdocumento(ndocumento);
+    }
+
 }

@@ -34,6 +34,10 @@ public class PacienteControlador {
     public Optional<PacienteModelo> findPacienteByID(@PathVariable("id") String id){
         return pacienteServicio.getPacienteById(id);
     }
+    @GetMapping("/existe/query")
+    public Boolean existePacienteById(@RequestParam("ndocumento") long ndocumento){
+        return pacienteServicio.existPacienteByID(ndocumento);
+    }
 
     @GetMapping("/query") // ejemplo: http://localhost:8080/pacientes/query?apellido=mejia
     public List<PacienteModelo> getPacientesByApellido(@RequestParam("apellido") String apellido){
@@ -48,6 +52,11 @@ public class PacienteControlador {
     @GetMapping("/ciudad/{ciudad}")
     public List<PacienteModelo> listPacientesCiudad(@PathVariable("ciudad") String ciudad){
         return pacienteServicio.pacientesByCiudad(ciudad);
+    }
+
+    @GetMapping("/ndocumento/{ndocumento}")
+    public  Optional<PacienteModelo> findPacienteByNdocumento(@PathVariable("ndocumento") long ndocumento){
+        return pacienteServicio.pacientePorNdocumento(ndocumento);
     }
 
     @PostMapping()
