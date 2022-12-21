@@ -24,5 +24,5 @@ public class PacienteModelo {
     private long ndocumento;
     private LocalDate fnacimiento;
     private List<String> alergias; //["acetaminofen","ibuprofeno"]
-    private Object direccion;    //{ciudad:"Bucaramanga",departamento:"Santander"}
+    private Object ubicacion;    //{ciudad:"Bucaramanga",departamento:"Santander"}
 }

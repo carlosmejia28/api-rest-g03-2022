@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -62,6 +63,11 @@ public class PacienteControlador {
     @PostMapping()
     public String savePaciente(@RequestBody PacienteModelo paciente){
         return pacienteServicio.guardarPaciente(paciente);
+    }
+
+    @DeleteMapping("/{id}")
+    public String deletePacienteById(@PathVariable("id") String id) {
+        return pacienteServicio.deletePacientebyId(id);
     }
 
 }

@@ -58,4 +58,17 @@ public class PacienteServicio {
         return pacienteRepositorio.findByNdocumento(ndocumento);
     }
 
+    public String deletePacientebyId(String id){
+        boolean consulta= pacienteRepositorio.existsById(id);
+        
+        if (consulta) {
+            pacienteRepositorio.deleteById(id);
+            return "Paciente Eliminado";
+
+        } else {
+            return "Paciente no Existe";
+        }
+         
+    }
+
 }
